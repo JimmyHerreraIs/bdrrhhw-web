@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -11,21 +11,21 @@
 <h1>Solicitudes</h1>
 <form action="add" method="post">
 
-	<input type="hidden" value="${Solicitudes.idSolicitudes}"/>
+	<input type="hidden" name="idSolicitud" value="${solicitudes.idSolicitud}"/>
 	Fecha Solicitud Peticion
-	<input type="date" id="fecha_solicitud_peticion" name="fecha_solicitud_peticion" value="${Solicitudes.fecha_solicitud_peticion}"/>
+	<input type="date" id="fechasolicitudpeticion" name="fecha_solicitud_peticion" value="${solicitud.fechasolicitudpeticion}"/>
 	<br/>
 	Fecha Solicitud Revision
-	<input type="date" id="fecha_solicitud_revision" name="fecha_solicitud_revision" value="${Solicitudes.fecha_solicitud_revision}"/>
+	<input type="date" id="fechasolicitudrevision" name="fecha_solicitud_revision" value="${solicitud.fechasolicitudrevision}"/>
 	<br/>
 	Estado Solicitud
-	<input type="text" id="estado_solicitud" name="estado_solicitud" value="${Solicitudes.estado_solicitud}"/>
+	<input type="text" id="estadosolicitud" name="estadosolicitud" value="${solicitud.estadosolicitud}"/>
 	<br/>
 	Pdf Solicitud
-	<input type="text" id="pdf_solicitud" name="pdf_solicitud" value="${Solicitudes.pdf_solicitud}"/>
+	<input type="text" id="pdfsolicitud" name="pdfsolicitud" value="${solicitud.pdfsolicitud}"/>
 	<br/>
 	Descripcion
-	<input type="text" id="descripcion" name="descripcion" value="${Solicitudes.descripcion}"/>
+	<input type="text" id="descripcion" name="descripcion" value="${solicitud.descripcion}"/>
 	<br/>
 		<!--  Empleado 
 			<select id="idEmpleado" name ="idEmpleado">
@@ -36,7 +36,7 @@
 				
 			</select>-->
 	<button type="submit">Guardar</button>
-	<button onclick="window.location.href='bdrrhhw-web/Solicitudes/findAll';return false;">
+	<button onclick="window.location.href='findAll';return false;">
 	Cancelar
 	</button>
  </form>

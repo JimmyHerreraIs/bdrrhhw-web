@@ -38,14 +38,14 @@ public class SolicitudesController {
 	}
 	//findOne actualiza o borra datos del formulario
 	@GetMapping("/findOne")
-	public String findOne(@RequestParam("idSolicitudes")@Nullable Integer 
+	public String findOne(@RequestParam("idSolicitud")@Nullable Integer 
 			idSolicitud, @RequestParam("opcion")@Nullable Integer opcion
 			, ModelMap modelMap ) {
 		//try{
 	
 		if(idSolicitud != null) {
-			Solicitudes solicitud = solicitudesDAO.findOne(idSolicitud);
-			modelMap.addAttribute("solicitudes", solicitud);
+			Solicitudes solicitudes = solicitudesDAO.findOne(idSolicitud);
+			modelMap.addAttribute("solicitudes", solicitudes);
 			
 		}
 		if(opcion == 1)return "solicitudes-add"; //El formulario web
@@ -55,20 +55,22 @@ public class SolicitudesController {
 			//TODO: handle exception
 	}
 	@PostMapping("/add")
-	public String add(@RequestParam("idSolicitud")@Nullable Integer idSolicitud
-			,@RequestParam("fecha_solicitud_peticion")@Nullable String fecha_solicitud_peticion
-			,@RequestParam("fecha_solicitud_revision")@Nullable String fecha_solicitud_revision
-			,@RequestParam("estado_solicitud")@Nullable String estado_solicitud
-			,@RequestParam("pdf_solicitud")@Nullable String pdf_solicitud
-			,@RequestParam("descripcion")@Nullable String descripcion
+	public String add(@RequestParam("idSolicitud") @Nullable Integer idSolicitud
+			,@RequestParam("fechasolicitudpeticion") @Nullable Date fechasolicitudpeticion
+			,@RequestParam("fechasolicitudrevision") @Nullable Date fechasolicitudrevision
+			,@RequestParam("estadosolicitud") @Nullable String estadosolicitud
+			,@RequestParam("pdfsolicitud") @Nullable String pdfsolicitud
+			,@RequestParam("descripcion") @Nullable String descripcion
 			,Model model
 			){
 		//try{
-		if(idSolicitud ==null) {
-			Solicitudes solicitudes=new Solicitudes(0,new Date(),new Date(), "En revision","pdf1","Revision de la cafetera");
+		if(idSolicitud == null) {
+			Solicitudes solicitudes=new Solicitudes(0,fechasolicitudpeticion,fechasolicitudrevision
+					,estadosolicitud,pdfsolicitud,descripcion);
 			solicitudesDAO.add(solicitudes);
 		}else {
-			Solicitudes solicitudes=new Solicitudes(idSolicitud,new Date(),new Date(), "En revision","pdf1","Revision de la cafetera");
+			Solicitudes solicitudes=new Solicitudes(idSolicitud,fechasolicitudpeticion,fechasolicitudrevision
+					,estadosolicitud,pdfsolicitud,descripcion);
 			solicitudesDAO.up(solicitudes);
 		}
 	
@@ -80,12 +82,15 @@ public class SolicitudesController {
 //}
 	@GetMapping("/del")
 	public String del(@RequestParam("idSolicitud") @Nullable Integer idSolicitud) {
-		//try {
-			solicitudesDAO.del(idSolicitud);
-			return "redirect:/solicitudes/findAll";	
-		//} catch (Exception e) {
-			// TODO: handle exception
-			//e.printStackTrace();
-		//}
+	    try {
+	        if (idSolicitud != null) {
+	            solicitudesDAO.del(idSolicitud); // Elimina la solicitud solo si idSolicitud no es null
+	        }
+	        // Si idSolicitud es null, no hacer nada
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return "redirect:/solicitudes/findAll"; // Redirigir de todas formas
 	}
+
 }

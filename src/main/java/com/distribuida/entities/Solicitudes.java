@@ -1,4 +1,4 @@
-package com.distribuida.entities;
+	package com.distribuida.entities;
 
 import java.util.Date;
 
@@ -12,9 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
 
 
 
+@Component
 @Entity
 @Table(name= "solicitudes")
 public class Solicitudes {
@@ -39,7 +41,7 @@ public class Solicitudes {
 	public Solicitudes() {}
 	
 	
-	public Solicitudes(int idSolicitudes, Date fechasolicitudpeticion, Date fechasolicitudrevision
+	public Solicitudes(int idSolicitud, Date fechasolicitudpeticion, Date fechasolicitudrevision
 			,String estadosolicitud, String pdfsolicitud, String descripcion) {
 		
 				this.idSolicitud= idSolicitud;

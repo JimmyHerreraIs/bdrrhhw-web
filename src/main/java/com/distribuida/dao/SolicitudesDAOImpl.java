@@ -25,7 +25,7 @@ public class SolicitudesDAOImpl implements SolicitudesDAO {
 	public List<Solicitudes> findAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession(); 
-		return session.createQuery("from Solicitudes", Solicitudes.class).getResultList();
+		return session.createQuery(" from Solicitudes", Solicitudes.class).getResultList();
 	}
 
 	@Override
