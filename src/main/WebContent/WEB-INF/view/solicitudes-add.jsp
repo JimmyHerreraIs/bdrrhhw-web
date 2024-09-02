@@ -68,7 +68,7 @@
  </form>
  </div>
  </section>
- 
+ <img alt="imagen de eliminar" width="300px" src="${pageContext.request.contextPath}/resources/img/forma.png">
  <footer></footer>
  		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>

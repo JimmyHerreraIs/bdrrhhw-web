@@ -3,11 +3,11 @@
 body {
     
     margin: 0 auto; /* Centrando el formulario horizontalmente */
-    padding: 20px; /* Espacio interno dentro del contenedor */
+    padding: 1px; /* Espacio interno dentro del contenedor */
     background-color:  #90e0ef; /* Color de fondo ligero */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
     border-radius: 8px; /* Bordes redondeados */
-    margin-top: 100px; /* Margen superior para separar el formulario del borde superior */
+    /*margin-top: 100px; /* Margen superior para separar el formulario del borde superior */
     text-align: center;/*Centrar las letras*/
 }
 
