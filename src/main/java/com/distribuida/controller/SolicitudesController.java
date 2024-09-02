@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,20 +49,21 @@ public class SolicitudesController {
 			modelMap.addAttribute("solicitudes", solicitudes);
 			
 		}
-		if(opcion == 1)return "solicitudes-add"; //El formulario web
-		else return "solicitudes-del";
+		if(opcion == 1) {return "solicitudes-add"; //El formulario web
+		}else { return "solicitudes-del";}
 		
 		//}catch (Exception e){
 			//TODO: handle exception
 	}
 	@PostMapping("/add")
 	public String add(@RequestParam("idSolicitud") @Nullable Integer idSolicitud
-			,@RequestParam("fechasolicitudpeticion") @Nullable Date fechasolicitudpeticion
-			,@RequestParam("fechasolicitudrevision") @Nullable Date fechasolicitudrevision
+			,@RequestParam("fechasolicitudpeticion")@Nullable @DateTimeFormat(pattern= "yyyy-MM-dd") Date fechasolicitudpeticion
+			,@RequestParam("fechasolicitudrevision")@Nullable @DateTimeFormat(pattern= "yyyy-MM-dd") Date fechasolicitudrevision
 			,@RequestParam("estadosolicitud") @Nullable String estadosolicitud
 			,@RequestParam("pdfsolicitud") @Nullable String pdfsolicitud
 			,@RequestParam("descripcion") @Nullable String descripcion
-			,Model model
+			//,@RequestParam("idEmpleado") @Nullable String idEmpleado
+			,ModelMap modelMap
 			){
 		//try{
 		if(idSolicitud == null) {

@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+
+/* estilosdel.css */
+
+/* Estilo para centrar el formulario y agregar margen y sombra */
+body {
+    max-width: 600px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrando el formulario horizontalmente */
+    padding: 20px; /* Espacio interno dentro del contenedor */
+    background-color:  rgb(192, 192, 192);; /* Color de fondo ligero */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-top: 200px; /* Margen superior para separar el formulario del borde superior */
+    text-align: center;
+}
+
+/* Estilo para el botón */
+btn {
+    margin: 5px; /* Espacio entre los botones */
+}

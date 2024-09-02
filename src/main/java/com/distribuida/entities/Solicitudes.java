@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 
@@ -24,8 +25,10 @@ public class Solicitudes {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name= "id_solicitud")
 	private int idSolicitud;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name= "fecha_solicitud_peticion")
 	private Date fechasolicitudpeticion;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name= "fecha_solicitud_revision")
 	private Date fechasolicitudrevision;
 	@Column(name= "estado_solicitud")
